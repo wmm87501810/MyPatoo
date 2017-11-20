@@ -17,8 +17,18 @@ import android.widget.Toast;
 import android.widget.FrameLayout.LayoutParams;
 
 import com.ipatoo.mypatoo.R;
+import com.ipatoo.mypatoo.bean.AbsResponse;
+import com.ipatoo.mypatoo.bean.User;
+import com.ipatoo.mypatoo.bean.VerifyMsg;
+import com.ipatoo.mypatoo.net.HttpUtils;
+import com.ipatoo.mypatoo.net.UrlConstant;
+import com.ipatoo.mypatoo.net.ok_http.callback.ResultCallback;
 import com.mob.MobApplication;
 import com.mob.MobSDK;
+import com.squareup.okhttp.Request;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
@@ -80,7 +90,10 @@ public class SignActivity extends AppCompatActivity implements View.OnClickListe
                 // 1. 通过规则判断手机号
                 if (!judgePhoneNums(phoneNums)) {
                     return;
-                } // 2. 通过sdk发送短信验证
+                }
+                postSendMsg(inputPhoneEt.getText().toString());
+
+                // 2. 通过sdk发送短信验证
                 SMSSDK.getVerificationCode("86", phoneNums);
 
                 // 3. 把按钮变成不可点击，并且显示倒计时（正在获取）
@@ -204,6 +217,51 @@ public class SignActivity extends AppCompatActivity implements View.OnClickListe
         mProBar.setLayoutParams(layoutParams);
         mProBar.setVisibility(View.VISIBLE);
         layout.addView(mProBar);
+    }
+
+    /**
+     * 发送验证码
+     * @param mobile 手机号码
+     */
+    public void postSendMsg(String mobile) {
+        Map<String, String> params = new HashMap();
+        params.put("mobile", mobile);
+        HttpUtils.doOkHttpPostRequest(UrlConstant.GET_SEND_MES, params, new ResultCallback<AbsResponse<VerifyMsg>>() {
+            @Override
+            public void onError(Request request, Exception e) {
+                Toast.makeText(SignActivity.this,"失败",Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onResponse(AbsResponse<VerifyMsg> response) {
+                if (response != null && response.isSuccess()) {
+                    Toast.makeText(SignActivity.this,response.getData().getCode(),Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
+
+
+    public void postLogin(String name) {
+        Map<String, String> params = new HashMap();
+        params.put("mobile", name);
+        params.put("code", name);
+        params.put("clientId", name);
+        params.put("deviceToken", name);
+
+        HttpUtils.doOkHttpPostRequest(UrlConstant.POST_LOGIN, params, new ResultCallback<AbsResponse<User>>() {
+            @Override
+            public void onError(Request request, Exception e) {
+
+            }
+
+            @Override
+            public void onResponse(AbsResponse<User> response) {
+                if (response != null && response.isSuccess()) {
+
+                }
+            }
+        });
     }
 
     @Override

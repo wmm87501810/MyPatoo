@@ -35,7 +35,13 @@ dependencies {
     compile fileTree(includes: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:27.0.1'
     testCompile 'junit:junit:4.12'
-    compile 'com.squareup.okhttp3:okhttp:3.9.0'
+//    compile 'com.squareup.okhttp3:okhttp:3.9.0'
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.7.5'
+    compile 'com.google.code.gson:gson:2.7'
+    //调试工具
+    compile 'com.facebook.stetho:stetho:1.4.1'
+    compile 'com.facebook.stetho:stetho-okhttp:1.4.1'
+
     implementation files('libs/MobCommons-2017.0607.1736.jar')
     implementation files('libs/MobTools-2017.0607.1736.jar')
     compile name: 'SMSSDK-3.0.0', ext: 'aar'

@@ -5,11 +5,11 @@ package com.ipatoo.mypatoo.net;
  */
 
 public class UrlConstant {
-    public static final String BASE_URL = "http://192.168.1.1:8080";
+    public static final String BASE_URL = "http://app1.ipatoo.cn";
 
     //登录接口POST
-    public static final String POST_LOGIN = BASE_URL + "/user/login";
+    public static final String POST_LOGIN = BASE_URL + "/rest/index.php?c=iuser&a=loginOrRegister";
 
-    //获取用户信息
-    public static final String GET_USER_INFO = BASE_URL + "/user/info";
+    //发送验证码
+    public static final String GET_SEND_MES= BASE_URL + "/rest/index.php?c=iuser&a=verify_sms";
 }
