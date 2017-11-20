@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="heightOfSignUpOrInEditText">54dp</dimen>
+    <dimen name="heightOfCommonBtn">@dimen/heightOfSignUpOrInEditText</dimen>
+    <dimen name="sizeOfSignUpOrInEditText">16dp</dimen>
+    <dimen name="sizeOfGenderIcon">104dp</dimen>
+    <dimen name="heightOfTopbar">50dp</dimen>
+    <dimen name="paddingOfTopbarBtn">16dp</dimen>
+    <dimen name="widthOfScreen">360dp</dimen>
+    <dimen name="halfWidthOfScreen">180dp</dimen>
+    <dimen name="sizeOfAvatarInPersonalPage">104dp</dimen>
+    <dimen name="sizeOfAvatarBgInPersonalPage">106dp</dimen>
+    <dimen name="sizeOfPersonalPageInfoIcon">16dp</dimen>
+    <dimen name="sizeOfPersonalPageInfoText">14dp</dimen>
+    <dimen name="sizeOfAddImageInFeedback">72dp</dimen>
+    <dimen name="marginOfFindLikeBtn">20dp</dimen>
+    <dimen name="sizeOfFindLikeBtn">60dp</dimen>
+    <dimen name="cornerSizeOfGenderTextBg">2dp</dimen>
+    <dimen name="sizeOfAvatarInMyToyRecordItem">32dp</dimen>
+</resources>
