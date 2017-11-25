@@ -53,16 +53,16 @@ public class ArcProgressBar extends View {
         for(int i=0;i<num;i++){
             int attr=ta.getIndex(i);
             switch(attr){
-                case  R.styleable.ArcProgressbar_startAngle:
+                case  R.styleable.ArcProgressBar_startAngle:
                     mStartAngle = ta.getInt(attr, 135);
                     break;
-                case R.styleable.ArcProgressbar_arcColor:
+                case R.styleable.ArcProgressBar_arcColor:
                     mArcColor = ta.getColor(attr, Color.parseColor("#eed306"));
                     break;
-                case R.styleable.ArcProgressbar_trokeWidth:
+                case R.styleable.ArcProgressBar_trokeWidth:
                     mTrokeWidth = ta.getInt(attr, 15);
                     break;
-                case R.styleable.ArcProgressbar_radius:
+                case R.styleable.ArcProgressBar_radius:
                     mRadius = ta.getInt(attr, 115);
                     break;
             }
